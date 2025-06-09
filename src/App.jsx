@@ -1,7 +1,11 @@
 import './App.css';
 import ChatEntry from './components/ChatEntry.jsx';
+import ChatLog from './components/ChatLog.jsx';
+import messages from './data/messages.json';
 
 const App = () => {
+  console.log(messages);
+
   return (
     <div id="App">
       <header>
@@ -10,7 +14,7 @@ const App = () => {
       <main>
         {/* Wave 01: Render one ChatEntry component
         Wave 02: Render ChatLog component */}
-        <ChatEntry></ChatEntry>
+        {/* <ChatEntry></ChatEntry> */}
         {/* <ChatEntry
           id={7}
           sender="Joe Biden"
@@ -18,6 +22,8 @@ const App = () => {
           timeStamp="2018-05-18T22:12:03Z"
           liked={false}
         /> */}
+
+        <ChatLog entries={messages}></ChatLog>
       </main>
     </div>
   );
