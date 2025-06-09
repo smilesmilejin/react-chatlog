@@ -1,4 +1,5 @@
 import './ChatEntry.css';
+import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.jsx';
 
 const ChatEntry = (props) => {
@@ -34,7 +35,7 @@ const ChatEntry = (props) => {
       <section className="entry-bubble">
         {/* <p>Replace with body of ChatEntry</p>
         <p className="entry-time">Replace with TimeStamp component</p> */}
-
+        {/* <p>{props.id}</p> */}
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}></TimeStamp></p>
 
@@ -46,6 +47,11 @@ const ChatEntry = (props) => {
 
 ChatEntry.propTypes = {
   // Fill with correct proptypes
+  id:PropTypes.number.isRequired,
+  sender:PropTypes.string.isRequired,
+  body:PropTypes.string.isRequired,
+  timeStamp:PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
 };
 
 export default ChatEntry;
