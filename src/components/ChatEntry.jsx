@@ -1,6 +1,7 @@
 import './ChatEntry.css';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.jsx';
+import { useState } from 'react';
 
 const ChatEntry = (props) => {
   // Wave 1 try
@@ -28,6 +29,29 @@ const ChatEntry = (props) => {
   //   </div>
   // );
 
+  // Wave 3
+  const[isLike, setIsLike] = useState(false);
+
+  const toggleLike = () => {
+    setIsLike(!isLike);
+    // This will log the OLD value!
+    // React state updates are asynchronous, so the new value is not immediately available after calling setIsLike.
+    // console.log('### isLike Value', isLike);
+  };
+
+  // {/* Wave 3: Method 2 */}
+  // Method 2
+  // const hearts = {
+  //   'false':'🤍',
+  //   'true':'❤️',
+  // };
+  // const changeLike = () => {
+  //   console.log('#####Clicked like');
+  //   console.log('isLike is now: ', isLike);
+  //   toggleLike();
+  //   console.log('isLike after tooglelike is now: ', isLike);
+  // };
+
   return (
     <div className="chat-entry local">
       {/* <h2 className="entry-name">Replace with name of sender</h2> */}
@@ -39,7 +63,13 @@ const ChatEntry = (props) => {
         <p>{props.body}</p>
         <p className="entry-time"><TimeStamp time={props.timeStamp}></TimeStamp></p>
 
-        <button className="like">🤍</button>
+        {/* <button className="like">🤍</button> */}
+        {/* Wave 3 */}
+        {/* Method 1 */}
+        <button className="like" onClick={toggleLike}>{isLike ? '❤️' : '🤍'}</button>
+        {/* Wave 3: Method 2 */}
+        {/* This also works */}
+        {/* <button className="like" onClick={changeLike}>{hearts[isLike]}</button> */}
       </section>
     </div>
   );
