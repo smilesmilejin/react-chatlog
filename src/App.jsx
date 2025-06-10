@@ -64,14 +64,14 @@ const App = () => {
     <div id="App">
       <header>
         {/* <h1>Application title</h1> */}
-        <h1>Chat between <person className={vladimircolor}>{twoPeople[0]}</person> and
-          <person className={estragoncolor}> {twoPeople[1]}</person></h1>
+        <h1>Chat between <span className={vladimircolor}>{twoPeople[0]}</span> and
+          <span className={estragoncolor}> {twoPeople[1]}</span></h1>
         {/* <h2 id='heartNumber'>{heartNumbers()} ❤️s</h2> */}
         {/* <section id='heartNumber'>{heartNumbers()} ❤️s</section> */}
 
         {/* Optional ColorChoice */}
         <section className = 'colorChoice'>
-          <local>
+          <section>
             {/* <p id='Vladimir' className={vladimircolor}>Vladimir's color:</p> */}
             <p id='Vladimir' className={vladimircolor}>{twoPeople[0]}'s color:</p>
             <button onClick={() => handleVladimirColorButtonClicked('red')}>🔴</button>
@@ -80,9 +80,9 @@ const App = () => {
             <button onClick={() => handleVladimirColorButtonClicked('green')}>🟢</button>
             <button onClick={() => handleVladimirColorButtonClicked('blue')}>🔵</button>
             <button onClick={() => handleVladimirColorButtonClicked('purple')}>🟣</button>
-          </local>
+          </section>
           <h2 id='heartNumber'>{heartNumbers()} ❤️s</h2>
-          <remote>
+          <section>
             {/* <p id='Estragon' className={estragoncolor}>Estragon's color:</p> */}
             <p id='Estragon' className={estragoncolor}>{twoPeople[1]}'s color:</p>
             <button onClick={() => handleEstragonColorButtonClicked('red')}>🔴</button>
@@ -91,7 +91,7 @@ const App = () => {
             <button onClick={() => handleEstragonColorButtonClicked('green')}>🟢</button>
             <button onClick={() => handleEstragonColorButtonClicked('blue')}>🔵</button>
             <button onClick={() => handleEstragonColorButtonClicked('purple')}>🟣</button>
-          </remote>
+          </section>
         </section>
       </header>
       <main>
