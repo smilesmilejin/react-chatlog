@@ -80,14 +80,27 @@
   color:black;
 }
 
-#Vladimir {
-  color: green;
+#Vladimir,
+#Estragon
+ {
+  font-size: 1.1em;
+  font-weight: bold;
 }
 
-#Estragon{
-  color:blue;
+/* colorChoice */
+.colorChoice {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: center; 
+  flex-wrap: wrap; /* Optional: wraps items if screen is small */
+  gap: 10rem;      /* Optional: spacing between elements */
+} 
+
+p {
+  /* font-size: 0.5em; */
+  color:black
 }
 
-.remote {
-  align-items: right;
-}
+/* .try {
+  color: blue;
+} */

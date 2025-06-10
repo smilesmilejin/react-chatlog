@@ -66,6 +66,18 @@ const ChatEntry = (props) => {
     }
   };
 
+  const setColor = () => {
+    // Need add this line, other Wave 02 tests will fail, because changes to <p className = {setColor()}>{props.body}</p>
+    // So props.colorChoice is undefined, and setColor() returns undefined, leading to a className={undefined} — 
+    // which doesn't crash the test but may prevent text matching properly in getAllByText() (especially if there’s styling or rendering issues).
+    if (!props.colorChoice) return '';
+    if (props.sender === 'Vladimir') {
+      return props.colorChoice.vColor;
+    } else if (props.sender === 'Estragon') {
+      return props.colorChoice.eColor;
+    }
+  };
+
   return (
     // {/* Optional */}
     <div className={getSenderType()}>
@@ -79,7 +91,8 @@ const ChatEntry = (props) => {
         {/* <p>Replace with body of ChatEntry</p>
         <p className="entry-time">Replace with TimeStamp component</p> */}
         {/* <p>{props.id}</p> */}
-        <p>{props.body}</p>
+        <p className = {setColor()}>{props.body}</p>
+        {/* <p>{props.body}</p> */}
         <p className="entry-time"><TimeStamp time={props.timeStamp}></TimeStamp></p>
         {/* <button className="like">🤍</button> */}
 

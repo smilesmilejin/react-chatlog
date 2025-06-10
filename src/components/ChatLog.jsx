@@ -16,12 +16,14 @@ const ChatLog = (props) => {
   // 3
   // : 
   // {id: 4, sender: 'Estragon', body: 'A robot.', timeStamp: '2018-05-29T22:52:21+00:00', liked: false}
-
+  
+  // Optional
   const chatMessages = props.entries.map((message) => {
     return (
       <li key={message.id}>
         <ChatEntry id={message.id} sender={message.sender} body={message.body}
-          timeStamp={message.timeStamp} liked={message.liked} onLikeToggle={props.onMessageLikeToggle}>
+          timeStamp={message.timeStamp} liked={message.liked}
+          onLikeToggle={props.onMessageLikeToggle} colorChoice={props.colorChoice}>
         </ChatEntry>
       </li>
     );
