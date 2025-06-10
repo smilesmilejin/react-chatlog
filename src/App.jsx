@@ -2,10 +2,24 @@ import './App.css';
 import ChatEntry from './components/ChatEntry.jsx';
 import ChatLog from './components/ChatLog.jsx';
 import messages from './data/messages.json';
+import { useState } from 'react';
 
 const App = () => {
   console.log(messages);
+  // Wave 3
+  const [messageData, setMessageData] = useState(messages);
 
+  const toggleMessageLike = (messageId) => {
+    const messages = messageData.map(message => {
+      if (message.id === messageId) {
+        return {...message, liked: !message.liked};
+      } else {
+        return message;
+      }
+    });
+
+    setMessageData(messages);
+  };
   return (
     <div id="App">
       <header>
@@ -23,7 +37,7 @@ const App = () => {
           liked={false}
         /> */}
 
-        <ChatLog entries={messages}></ChatLog>
+        <ChatLog entries={messageData} onMessageLikeToggle ={toggleMessageLike}></ChatLog>
       </main>
     </div>
   );
