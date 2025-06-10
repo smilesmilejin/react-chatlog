@@ -1,5 +1,5 @@
 import './App.css';
-// import ChatEntry from './components/ChatEntry.jsx';
+import ChatEntry from './components/ChatEntry.jsx';
 import ChatLog from './components/ChatLog.jsx';
 import messages from './data/messages.json';
 import { useState } from 'react';
@@ -37,8 +37,9 @@ const App = () => {
     <div id="App">
       <header>
         {/* <h1>Application title</h1> */}
-        <h1>Chat between Vladimir and Estragon</h1>
+        <h1>Chat between <person id='Vladimir'>Vladimir</person> and <person id='Estragon'>Estragon</person></h1>
         <h2 id='heartNumber'>{heartNumbers()} ❤️s</h2>
+        {/* <section id='heartNumber'>{heartNumbers()} ❤️s</section> */}
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component

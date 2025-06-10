@@ -56,8 +56,23 @@ const ChatEntry = (props) => {
     props.onLikeToggle(props.id);
   };
 
+
+  // Optional local vs remote
+  const getSenderType = () => {
+    if (props.sender === 'Vladimir') {
+      return 'chat-entry local';
+    } else if (props.sender === 'Estragon') {
+      return 'chat-entry remote';
+    }
+  };
+
   return (
-    <div className="chat-entry local">
+    // {/* Optional */}
+    <div className={getSenderType()}>
+    {/* <div className="chat-entry local"> */}
+    {/* Optional */}
+    {/* <div className={getSenderType()}> */}
+      {/* <div className="chat-entry remote "> */}
       {/* <h2 className="entry-name">Replace with name of sender</h2> */}
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">

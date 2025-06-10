@@ -73,8 +73,21 @@
   color: purple
 }
 
+/* header heart count */
 #heartNumber {
   background-color: #e0ffff;
   padding: 0.5em;
   color:black;
+}
+
+#Vladimir {
+  color: green;
+}
+
+#Estragon{
+  color:blue;
+}
+
+.remote {
+  align-items: right;
 }

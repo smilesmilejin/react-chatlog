@@ -2,3 +2,8 @@
   margin: auto;
   max-width: 50rem;
 }
+
+/* removes the default bullets from list items */
+ul {
+  list-style: none;
+}
