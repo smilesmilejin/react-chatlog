@@ -2,8 +2,8 @@ import './ChatLog.css';
 import ChatEntry from './ChatEntry.jsx';
 
 const ChatLog = (props) => {
-  console.log('########### ChatLog');
-  console.log(props.entries);
+  // console.log('########### ChatLog');
+  // console.log(props.entries);
   // 0
   // :
   // {id: 1, sender: 'Vladimir', body: 'why are you arguing with me', timeStamp: '2018-05-29T22:49:06+00:00', liked: false}

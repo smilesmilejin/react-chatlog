@@ -5,7 +5,7 @@ import messages from './data/messages.json';
 import { useState } from 'react';
 
 const App = () => {
-  console.log(messages);
+  // console.log(messages);
   // Optional: Color Choice
   const [vladimircolor, setVladimirColor] = useState('green');
   const [estragoncolor, setEstragonColor] = useState('blue');
