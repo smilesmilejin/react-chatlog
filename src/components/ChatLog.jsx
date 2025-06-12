@@ -31,6 +31,12 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ).isRequired,
+  onMessageLikeToggle: PropTypes.func,
+  twoPeople:PropTypes.arrayOf(PropTypes.string),
+  colorChoice: PropTypes.shape({
+    vColor: PropTypes.string,
+    eColor: PropTypes.string,
+  }),
 };
 
 export default ChatLog;

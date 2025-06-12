@@ -62,6 +62,12 @@ ChatEntry.propTypes = {
   body:PropTypes.string.isRequired,
   timeStamp:PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
+  onLikeToggle: PropTypes.func,
+  twoPeople:PropTypes.arrayOf(PropTypes.string),
+  colorChoice: PropTypes.shape({
+    vColor: PropTypes.string,
+    eColor: PropTypes.string,
+  }),
 };
 
 export default ChatEntry;
