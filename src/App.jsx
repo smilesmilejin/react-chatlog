@@ -62,7 +62,7 @@ const App = () => {
 
         <section className = 'colorChoice'>
           <section>
-            <p id='Vladimir' className={vladimircolor}>{twoPeople[0]}'s color:</p>
+            <p id='Vladimir' className={vladimircolor}>{`${twoPeople[0]}'s color:`}</p>
             <button onClick={() => handleVladimirColorButtonClicked('red')}>🔴</button>
             <button onClick={() => handleVladimirColorButtonClicked('orange')} >🟠</button>
             <button onClick={() => handleVladimirColorButtonClicked('yellow')}>🟡</button>

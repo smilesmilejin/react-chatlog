@@ -1,7 +1,7 @@
 import './ChatEntry.css';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.jsx';
-// import { useState } from 'react';
+
 
 const ChatEntry = (props) => {
   const likeButtonClicked = () => {
@@ -38,12 +38,12 @@ const ChatEntry = (props) => {
   );
 };
 
-ChatEntry.propTypes = {
-  id:PropTypes.number.isRequired,
-  sender:PropTypes.string.isRequired,
-  body:PropTypes.string.isRequired,
-  timeStamp:PropTypes.string.isRequired,
-  liked: PropTypes.bool.isRequired,
-};
+// ChatEntry.propTypes = {
+//   id:PropTypes.number.isRequired,
+//   sender:PropTypes.string.isRequired,
+//   body:PropTypes.string.isRequired,
+//   timeStamp:PropTypes.string.isRequired,
+//   liked: PropTypes.bool.isRequired,
+// };
 
 export default ChatEntry;
