@@ -73,7 +73,7 @@ const App = () => {
 
           <h2 id='heartNumber'>{heartNumbers()} ❤️s</h2>
           <section>
-            <p id='Estragon' className={estragoncolor}>{twoPeople[1]}'s color:</p>
+            <p id='Estragon' className={estragoncolor}>{`${twoPeople[1]}'s color:`}</p>
             <button onClick={() => handleEstragonColorButtonClicked('red')}>🔴</button>
             <button onClick={() => handleEstragonColorButtonClicked('orange')} >🟠</button>
             <button onClick={() => handleEstragonColorButtonClicked('yellow')}>🟡</button>
