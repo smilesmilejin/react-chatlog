@@ -1,16 +1,12 @@
 import './App.css';
-import ChatEntry from './components/ChatEntry.jsx';
 import ChatLog from './components/ChatLog.jsx';
 import messages from './data/messages.json';
 import { useState } from 'react';
 
 const App = () => {
-  // console.log(messages);
-  // Optional: Color Choice
   const [vladimircolor, setVladimirColor] = useState('green');
   const [estragoncolor, setEstragonColor] = useState('blue');
 
-  // Optional Header Title
   const twoPeople = [];
 
   for (let message of messages) {
@@ -22,7 +18,6 @@ const App = () => {
     }
   };
 
-  // Wave 3
   const [messageData, setMessageData] = useState(messages);
 
   const toggleMessageLike = (messageId) => {
@@ -37,7 +32,7 @@ const App = () => {
     setMessageData(messages);
   };
 
-  // calculate number of hearts
+
   const heartNumbers = () => {
     let count = 0;
     for (const message of messageData) {
@@ -49,7 +44,6 @@ const App = () => {
     return count;
   };
 
-  // Optional
   const handleVladimirColorButtonClicked= (color) => {
     setVladimirColor(color);
   };
@@ -63,16 +57,11 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        {/* <h1>Application title</h1> */}
         <h1>Chat between <span className={vladimircolor}>{twoPeople[0]}</span> and
           <span className={estragoncolor}> {twoPeople[1]}</span></h1>
-        {/* <h2 id='heartNumber'>{heartNumbers()} ❤️s</h2> */}
-        {/* <section id='heartNumber'>{heartNumbers()} ❤️s</section> */}
 
-        {/* Optional ColorChoice */}
         <section className = 'colorChoice'>
           <section>
-            {/* <p id='Vladimir' className={vladimircolor}>Vladimir's color:</p> */}
             <p id='Vladimir' className={vladimircolor}>{twoPeople[0]}'s color:</p>
             <button onClick={() => handleVladimirColorButtonClicked('red')}>🔴</button>
             <button onClick={() => handleVladimirColorButtonClicked('orange')} >🟠</button>
@@ -81,9 +70,9 @@ const App = () => {
             <button onClick={() => handleVladimirColorButtonClicked('blue')}>🔵</button>
             <button onClick={() => handleVladimirColorButtonClicked('purple')}>🟣</button>
           </section>
+
           <h2 id='heartNumber'>{heartNumbers()} ❤️s</h2>
           <section>
-            {/* <p id='Estragon' className={estragoncolor}>Estragon's color:</p> */}
             <p id='Estragon' className={estragoncolor}>{twoPeople[1]}'s color:</p>
             <button onClick={() => handleEstragonColorButtonClicked('red')}>🔴</button>
             <button onClick={() => handleEstragonColorButtonClicked('orange')} >🟠</button>
@@ -94,21 +83,12 @@ const App = () => {
           </section>
         </section>
       </header>
-      <main>
-        {/* Wave 01: Render one ChatEntry component
-        Wave 02: Render ChatLog component */}
-        {/* <ChatEntry></ChatEntry> */}
-        {/* <ChatEntry
-          id={7}
-          sender="Joe Biden"
-          body="Get out by 8am.  I'll count the silverware"
-          timeStamp="2018-05-18T22:12:03Z"
-          liked={false}
-        /> */}
 
+      <main>
         <ChatLog entries={messageData} onMessageLikeToggle ={toggleMessageLike}
           colorChoice = {colorChoice}>
         </ChatLog>
+
       </main>
     </div>
   );
