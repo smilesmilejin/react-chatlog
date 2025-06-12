@@ -7,17 +7,6 @@ const App = () => {
   const [vladimircolor, setVladimirColor] = useState('green');
   const [estragoncolor, setEstragonColor] = useState('blue');
 
-  const twoPeople = [];
-
-  for (let message of messages) {
-    if (!twoPeople.includes(message.sender)) {
-      twoPeople.push(message.sender);
-    }
-    if (twoPeople.length === 2) {
-      break;
-    }
-  };
-
   const [messageData, setMessageData] = useState(messages);
 
   const toggleMessageLike = (messageId) => {
@@ -54,11 +43,23 @@ const App = () => {
 
   const colorChoice = {'vColor': vladimircolor,'eColor':estragoncolor};
 
+  const twoPeople = [];
+
+  for (let message of messageData) {
+    if (!twoPeople.includes(message.sender)) {
+      twoPeople.push(message.sender);
+    }
+    if (twoPeople.length === 2) {
+      break;
+    }
+  };
+
   return (
     <div id="App">
       <header>
-        <h1>Chat between <span className={vladimircolor}>{twoPeople[0]}</span> and
-          <span className={estragoncolor}> {twoPeople[1]}</span></h1>
+        <h1>Chat between 
+          <span className={vladimircolor}>{twoPeople[0]}
+          </span> and <span className={estragoncolor}>{twoPeople[1]}</span></h1>
 
         <section className = 'colorChoice'>
           <section>
@@ -86,7 +87,7 @@ const App = () => {
 
       <main>
         <ChatLog entries={messageData} onMessageLikeToggle ={toggleMessageLike}
-          colorChoice = {colorChoice}>
+          colorChoice = {colorChoice} twoPeople={twoPeople}>
         </ChatLog>
 
       </main>

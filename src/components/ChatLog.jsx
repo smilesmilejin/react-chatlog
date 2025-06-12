@@ -8,7 +8,7 @@ const ChatLog = (props) => {
       <li key={message.id}>
         <ChatEntry id={message.id} sender={message.sender} body={message.body}
           timeStamp={message.timeStamp} liked={message.liked}
-          onLikeToggle={props.onMessageLikeToggle} colorChoice={props.colorChoice}>
+          onLikeToggle={props.onMessageLikeToggle} colorChoice={props.colorChoice} twoPeople={props.twoPeople}>
         </ChatEntry>
       </li>
     );

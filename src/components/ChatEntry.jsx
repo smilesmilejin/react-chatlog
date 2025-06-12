@@ -1,5 +1,5 @@
 import './ChatEntry.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp.jsx';
 
 
@@ -10,21 +10,39 @@ const ChatEntry = (props) => {
 
 
   const getSenderType = () => {
-    if (props.sender === 'Vladimir') {
-      return 'chat-entry local';
-    } else if (props.sender === 'Estragon') {
-      return 'chat-entry remote';
+    if (!props.twoPeople) {
+      return '';
+    } else if (props.twoPeople.length === 2) {
+      if (props.sender === props.twoPeople[0]) {
+        return 'chat-entry local';
+      } else if (props.sender === props.twoPeople[1]) {
+        return 'chat-entry remote';
+      }
+    } else if (props.twoPeople.length === 1) {
+      if (props.sender === props.twoPeople[0]) {
+        return 'chat-entry local';
+      }
     }
+    return '';
   };
 
+
   const setColor = () => {
-    if (!props.colorChoice) return '';
-    if (props.sender === 'Vladimir') {
+    if (!props.colorChoice || !props.twoPeople) return '';
+
+    if (props.twoPeople.length === 2) {
+      if (props.sender === props.twoPeople[0]) {
+        return props.colorChoice.vColor;
+      } else if (props.sender === props.twoPeople[1]) {
+        return props.colorChoice.eColor;
+      }
+    } else if (props.twoPeople.length === 1) {
       return props.colorChoice.vColor;
-    } else if (props.sender === 'Estragon') {
-      return props.colorChoice.eColor;
     }
+
+    return '';
   };
+
 
   return (
     <div className={getSenderType()}>
@@ -38,12 +56,12 @@ const ChatEntry = (props) => {
   );
 };
 
-// ChatEntry.propTypes = {
-//   id:PropTypes.number.isRequired,
-//   sender:PropTypes.string.isRequired,
-//   body:PropTypes.string.isRequired,
-//   timeStamp:PropTypes.string.isRequired,
-//   liked: PropTypes.bool.isRequired,
-// };
+ChatEntry.propTypes = {
+  id:PropTypes.number.isRequired,
+  sender:PropTypes.string.isRequired,
+  body:PropTypes.string.isRequired,
+  timeStamp:PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+};
 
 export default ChatEntry;
