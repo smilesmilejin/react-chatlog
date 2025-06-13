@@ -73,7 +73,6 @@
   color: purple
 }
 
-/* header heart count */
 #heartNumber {
   background-color: #e0ffff;
   padding: 0.5em;
@@ -87,20 +86,14 @@
   font-weight: bold;
 }
 
-/* colorChoice */
 .colorChoice {
   display: flex;
-  align-items: center; /* Align items vertically */
+  align-items: center;
   justify-content: center; 
-  flex-wrap: wrap; /* Optional: wraps items if screen is small */
-  gap: 10rem;      /* Optional: spacing between elements */
+  flex-wrap: wrap;
+  gap: 10rem;
 } 
 
 p {
-  /* font-size: 0.5em; */
   color:black
 }
-
-/* .try {
-  color: blue;
-} */

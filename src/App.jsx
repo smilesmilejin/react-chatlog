@@ -57,9 +57,8 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Chat between
-          <span className={vladimircolor}>{twoPeople[0]}
-          </span> and <span className={estragoncolor}>{twoPeople[1]}</span></h1>
+        <h1>Chat between <span className={vladimircolor}> {twoPeople[0]}
+        </span> and <span className={estragoncolor}>{twoPeople[1]}</span></h1>
 
         <section className = 'colorChoice'>
           <section>
