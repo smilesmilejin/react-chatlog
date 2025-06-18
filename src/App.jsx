@@ -2,6 +2,8 @@ import './App.css';
 import ChatLog from './components/ChatLog.jsx';
 import messages from './data/messages.json';
 import { useState } from 'react';
+import ColorButton from './components/ColorButton.jsx';
+
 
 const App = () => {
   const [vladimircolor, setVladimirColor] = useState('green');
@@ -77,7 +79,7 @@ const App = () => {
         </span> and <span className={estragoncolor}>{twoPeople[1]}</span></h1>
 
         <section className = 'colorChoice'>
-          <section>
+          {/* <section>
             <p id='Vladimir' className={vladimircolor}>{`${twoPeople[0]}'s color:`}</p>
             <button onClick={() => handleVladimirColorButtonClicked('red')}>🔴</button>
             <button onClick={() => handleVladimirColorButtonClicked('orange')} >🟠</button>
@@ -85,11 +87,20 @@ const App = () => {
             <button onClick={() => handleVladimirColorButtonClicked('green')}>🟢</button>
             <button onClick={() => handleVladimirColorButtonClicked('blue')}>🔵</button>
             <button onClick={() => handleVladimirColorButtonClicked('purple')}>🟣</button>
-          </section>
+          </section> */}
+
+          {/* ?.[0] safely accesses the first element if twoPeople is defined.
+          ?? null ensures that if it's undefined, you pass null instead. */}
+          <ColorButton
+            color={vladimircolor}
+            person={twoPeople?.[0] ?? null}
+            colorButtonClicked={handleVladimirColorButtonClicked}
+          />
+
 
           {/* <h2 id='heartNumber'>{heartNumbers()} ❤️s</h2> */}
           <h2 id='heartNumber'>{heartNumbers} ❤️s</h2>
-          <section>
+          {/* <section>
             <p id='Estragon' className={estragoncolor}>{`${twoPeople[1]}'s color:`}</p>
             <button onClick={() => handleEstragonColorButtonClicked('red')}>🔴</button>
             <button onClick={() => handleEstragonColorButtonClicked('orange')} >🟠</button>
@@ -97,7 +108,12 @@ const App = () => {
             <button onClick={() => handleEstragonColorButtonClicked('green')}>🟢</button>
             <button onClick={() => handleEstragonColorButtonClicked('blue')}>🔵</button>
             <button onClick={() => handleEstragonColorButtonClicked('purple')}>🟣</button>
-          </section>
+          </section> */}
+          <ColorButton
+            color={estragoncolor}
+            person={twoPeople?.[1] ?? null}
+            colorButtonClicked={handleEstragonColorButtonClicked}
+          />
         </section>
       </header>
 
