@@ -5,12 +5,19 @@ import PropTypes from 'prop-types';
 const ChatLog = (props) => {
   const chatMessages = props.entries.map((message) => {
     return (
-      <li key={message.id}>
-        <ChatEntry id={message.id} sender={message.sender} body={message.body}
-          timeStamp={message.timeStamp} liked={message.liked}
-          onLikeToggle={props.onMessageLikeToggle} colorChoice={props.colorChoice} twoPeople={props.twoPeople}>
-        </ChatEntry>
-      </li>
+      // <li key={message.id}>
+      <ChatEntry
+        key={message.id}
+        id={message.id}
+        sender={message.sender}
+        body={message.body}
+        timeStamp={message.timeStamp}
+        liked={message.liked}
+        onLikeToggle={props.onMessageLikeToggle}
+        colorChoice={props.colorChoice}
+        twoPeople={props.twoPeople}>
+      </ChatEntry>
+      // </li>
     );
   });
 

@@ -9,29 +9,45 @@ const App = () => {
 
   const [messageData, setMessageData] = useState(messages);
 
+  // const toggleMessageLike = (messageId) => {
+  //   const messages = messageData.map(message => {
+  //     if (message.id === messageId) {
+  //       return {...message, liked: !message.liked};
+  //     } else {
+  //       return message;
+  //     }
+  //   });
+
+  //   setMessageData(messages);
+  // };
+
+  //  we could replace the if with a ternary operator:
   const toggleMessageLike = (messageId) => {
-    const messages = messageData.map(message => {
-      if (message.id === messageId) {
-        return {...message, liked: !message.liked};
-      } else {
-        return message;
-      }
+    const messages = messageData.map((msg) => {
+      return (messageId === msg.id) ? {...msg, liked: !msg.liked} : msg;
     });
 
     setMessageData(messages);
   };
 
+  // This could be returned from a helper function
+  // totalLikes is a variable that accumulates a value as we loop over each entry in chatEntries
+  const heartNumbers = messageData.reduce((totalLikes, currentMessage) => {
+    // If currentMessage.liked is true add 1 to totalLikes, else add 0
+    return (totalLikes += currentMessage.liked ? 1 : 0);
+  }, 0); // The 0 here sets the initial value of totalLikes to 0
 
-  const heartNumbers = () => {
-    let count = 0;
-    for (const message of messageData) {
-      if (message.liked) {
-        count += 1;
-      }
-    };
 
-    return count;
-  };
+  // const heartNumbers = () => {
+  //   let count = 0;
+  //   for (const message of messageData) {
+  //     if (message.liked) {
+  //       count += 1;
+  //     }
+  //   };
+
+  //   return count;
+  // };
 
   const handleVladimirColorButtonClicked= (color) => {
     setVladimirColor(color);
@@ -71,7 +87,8 @@ const App = () => {
             <button onClick={() => handleVladimirColorButtonClicked('purple')}>🟣</button>
           </section>
 
-          <h2 id='heartNumber'>{heartNumbers()} ❤️s</h2>
+          {/* <h2 id='heartNumber'>{heartNumbers()} ❤️s</h2> */}
+          <h2 id='heartNumber'>{heartNumbers} ❤️s</h2>
           <section>
             <p id='Estragon' className={estragoncolor}>{`${twoPeople[1]}'s color:`}</p>
             <button onClick={() => handleEstragonColorButtonClicked('red')}>🔴</button>
@@ -85,9 +102,12 @@ const App = () => {
       </header>
 
       <main>
-        <ChatLog entries={messageData} onMessageLikeToggle ={toggleMessageLike}
-          colorChoice = {colorChoice} twoPeople={twoPeople}>
-        </ChatLog>
+        <ChatLog 
+          entries={messageData}
+          onMessageLikeToggle ={toggleMessageLike}
+          colorChoice = {colorChoice}
+          twoPeople={twoPeople}
+        />
 
       </main>
     </div>

@@ -9,22 +9,39 @@ const ChatEntry = (props) => {
   };
 
 
-  const getSenderType = () => {
-    if (!props.twoPeople) {
+  // const getSenderType = () => {
+  //   if (!props.twoPeople) {
+  //     return '';
+  //   } else if (props.twoPeople.length === 2) {
+  //     if (props.sender === props.twoPeople[0]) {
+  //       return 'chat-entry local';
+  //     } else if (props.sender === props.twoPeople[1]) {
+  //       return 'chat-entry remote';
+  //     }
+  //   } else if (props.twoPeople.length === 1) {
+  //     if (props.sender === props.twoPeople[0]) {
+  //       return 'chat-entry local';
+  //     }
+  //   }
+  //   return '';
+  // };
+
+  // use entryClassName instead of getSenderTyep to handle muptiple people.
+  const entryClassName = (() => {
+    // Check if twoPeople array exists and has at least one member
+    if (!props.twoPeople || props.twoPeople.length === 0) {
+      // No participants info, so no class can be assigned
       return '';
-    } else if (props.twoPeople.length === 2) {
-      if (props.sender === props.twoPeople[0]) {
-        return 'chat-entry local';
-      } else if (props.sender === props.twoPeople[1]) {
-        return 'chat-entry remote';
-      }
-    } else if (props.twoPeople.length === 1) {
-      if (props.sender === props.twoPeople[0]) {
-        return 'chat-entry local';
-      }
     }
-    return '';
-  };
+
+    // If sender matches the first person in the array, classify as 'local'
+    if (props.sender === props.twoPeople[0]) {
+      return 'local';
+    }
+
+    // If sender is NOT the first person, treat as 'remote' regardless of matching second person or not
+    return 'remote';
+  });
 
 
   const setColor = () => {
@@ -45,14 +62,19 @@ const ChatEntry = (props) => {
 
 
   return (
-    <div className={getSenderType()}>
+    // <div className={getSenderType()}>
+    <li className={`chat-entry ${entryClassName()}`}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p className = {setColor()}>{props.body}</p>
-        <p className="entry-time"><TimeStamp time={props.timeStamp}></TimeStamp></p>
-        <button className="like" onClick={likeButtonClicked}>{props.liked ? '❤️' : '🤍'}</button>
+        <p className="entry-time">
+          <TimeStamp time={props.timeStamp} />
+        </p>
+        <button className="like" onClick={likeButtonClicked}>
+          {props.liked ? '❤️' : '🤍'}
+        </button>
       </section>
-    </div>
+    </li>
   );
 };
 
